@@ -4,11 +4,14 @@ var minutes = process.argv[3];
 var figlet = require('figlet');
 var toRoman = require('roman-numerals').toRoman;
 
-function isTime(n) {
-  return n > 0 && n <= 60; // нету символа для 0
+function isMinute(n) {
+  return n > 0 && n < 60; // нету символа для 0
+}
+function isHour(n) {
+  return n > 0 && n < 24; // нету символа для 0
 }
 
-if (isTime(hours) && isTime(minutes))
+if (isHour(hours) && isMinute(minutes))
   figlet(
     [toRoman(hours), ':', toRoman(minutes)].join(''),
     'Dot Matrix',
