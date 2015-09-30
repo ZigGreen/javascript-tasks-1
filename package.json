@@ -1,0 +1,22 @@
+{
+  "name": "javascript-tasks-1",
+  "version": "1.0.0",
+  "main": "roman-time.js",
+  "scripts": {
+    "start": "node roman-time.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZigGreen/javascript-tasks-1.git"
+  },
+  "author": "Kirill Banaru",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ZigGreen/javascript-tasks-1/issues"
+  },
+  "homepage": "https://github.com/ZigGreen/javascript-tasks-1#readme",
+  "dependencies": {
+    "figlet": "^1.1.1",
+    "roman-numerals": "^0.3.2"
+  }
+}
