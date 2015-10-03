@@ -5,19 +5,33 @@ var figlet = require('figlet');
 var toRoman = require('roman-numerals').toRoman;
 
 function isMinute(n) {
-  return n > 0 && n < 60; // нету символа для 0
+  return n >= 0 && n < 60;
 }
 function isHour(n) {
-  return n > 0 && n < 24; // нету символа для 0
+  return n >= 0 && n < 24;
 }
 
-if (isHour(hours) && isMinute(minutes))
-  figlet(
-    [toRoman(hours), ':', toRoman(minutes)].join(''),
-    'Dot Matrix',
-    function (err, data) {
-      console.log(err || data);
-    }
-  );
-else
+function stringToASCIIArt(str, font) {
+  return new Promise(function (res, rej) {
+    figlet(
+      str,
+      font || 'Dot Matrix',
+      function (err, data) {
+        if (err) {
+          rej(err)
+        } else {
+          res(data)
+        }
+      }
+    );
+  })
+}
+
+var timeInRomanNotation = [toRoman(hours), ':', toRoman(minutes)].join('');
+
+if (isHour(hours) && isMinute(minutes)) {
+  stringToASCIIArt(timeInRomanNotation).then(console.log.bind(console));
+}
+else {
   console.log('Время указано не верно');
+}
